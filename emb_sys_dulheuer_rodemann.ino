@@ -28,6 +28,7 @@ void setup() {
 
 void loop() {
   delay(100);
+  // measure distance on both sensors
   distance1 = newMeasurement(trigPin1, echoPin1);
   distance2 = newMeasurement(trigPin2, echoPin2);
 
@@ -35,7 +36,6 @@ void loop() {
   digitalWrite(ledPinYell, LOW);
   digitalWrite(ledPinGreen, LOW);
   noTone(buzzerPin);
-
 
   if (distance1 != 0 && distance2 != 0) {
     Serial.println(distance1);
@@ -50,6 +50,7 @@ void loop() {
     }
   }
 
+  // turn on certain LEDs and buzzer 
   if (lowestDistance > 40) {
     digitalWrite(ledPinGreen, HIGH);
   }
